@@ -1,0 +1,21 @@
+{
+  "name": "priyathreejstask",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/psharma1396/threejstask.git"
+  },
+  "author": "psharma1396",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "http-server": "^0.12.3",
+    "three": "^0.128.0"
+  }
+}
