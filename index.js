@@ -6,7 +6,7 @@ import {
 document.addEventListener("DOMContentLoaded", function (event) {
 
     let camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight);
-    camera.position.set(10, 99, 150);
+    camera.position.set(20, 105, 145);
 
     var sliderValue = document.getElementById("sliderValue");
 
@@ -20,15 +20,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let renderer = new THREE.WebGLRenderer({
         canvas
     });
-    renderer.setSize(window.innerWidth/2 + 10 , window.innerHeight/2);
+    //renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth/2,window.innerHeight/2);
+
+
+
 
     const manager = new THREE.LoadingManager()
     var modelObj = null; 
     new OBJLoader(manager)
         .load('./model.obj', function (obj) {
-            obj.position.y = 100;
-            obj.position.z = -11;
-            obj.position.x = 11;
+            obj.position.y = 120;
+            obj.position.z = -15;
+            obj.position.x = 5;
             obj.name = "main_obb";
             obj.scale.set(10, 10, 10);
             scene.add(obj);
@@ -102,14 +106,49 @@ document.addEventListener("DOMContentLoaded", function (event) {
         });
     });
     
-    var dl = new THREE.DirectionalLight('white', 0.6);
-    dl.position.set(-5, 11, 5);
+    var dl = new THREE.DirectionalLight('white', 0.7);
+    dl.position.set(-15, 10, 15);
     scene.add(dl);
 
     animate();
+    let resized = false;
+
+    // resize event listener
+    window.addEventListener('resize', function() {
+        resized = true;
+        resize();
+    })
+
 
     function animate() {
         requestAnimationFrame(animate);
         renderer.render(scene, camera);
     }
+
+    function resizeRendererToDisplaySize(renderer) {
+    const canvas = renderer.domElement;
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    const needResize = canvas.width !== width || canvas.height !== height;
+    if (needResize) {
+      renderer.setSize(width, height, false);
+    }
+    return needResize;
+  }
+
+    function resize() {
+    resized=true;
+    if (resizeRendererToDisplaySize(renderer)){
+        const canvas=renderer.domElement;
+        camera.aspect = canvas.clientWidth/canvas.clientHeight;
+        camera.updateProjectionMatrix();
+
+    }
+
+    // update the size
+    renderer.setSize(window.innerWidth/2, window.innerHeight/2);
+
+    animate();
+    
+}
 });
