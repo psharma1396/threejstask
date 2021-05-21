@@ -14,6 +14,12 @@
         .table td {
             text-align: center;
         }
+        canvas {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        background-size: contain;
+        }
         
     </style>
 
@@ -79,7 +85,7 @@
             <!-- This will be used for canvas -->
             <div class="col-sm-8 col-sm-offset-40">
             	<!-- This id will be used to draw the model hence canvas as id will be used -->
-                <canvas id="canvas-main" style="width:100%; object-fit: contain;"></canvas>
+                <canvas id="canvas-main"></canvas>
                 <div>
                 <input style="width:82%; object-fit: contain;" type="range" min="0" max="16" value="0" id="slider">
                 <div id="sliderValue">Day: 0</div>
