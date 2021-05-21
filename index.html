@@ -12,18 +12,20 @@
             canvas = document.getElementById("canvas-main");
             if (canvas.width  < window.innerWidth)
             {
-                canvas.width  = window.innerWidth;
+                canvas.width  = window.innerWidth/2.2;
+                //alert("in width");
             }
 
             if (canvas.height < window.innerHeight)
             {
-                canvas.height = window.innerHeight;
+                canvas.height = window.innerHeight/2.2;
+                //alert("in height");
             }
         }
     </script>
     
     <style>
-    	.table th {
+        .table th {
             text-align: center;
         }
         .table td {
@@ -52,8 +54,8 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 text-left" >
-            	<!-- heading for project -->
-            <h1 style="font-size: 175%">Construction Schedule</h1>
+                <!-- heading for project -->
+            <h1 style="font-size: 150%">Construction Schedule</h1>
         </div>
         </div>
         <div class="row">
@@ -99,7 +101,7 @@
             </div>
             <!-- This will be used for canvas -->
             <div class="col-sm-8 col-sm-offset-40">
-            	<!-- This id will be used to draw the model hence canvas as id will be used -->
+                <!-- This id will be used to draw the model hence canvas as id will be used -->
                 <canvas id="canvas-main"></canvas>
                 <div>
                 <input style="width:82%; object-fit: contain;" type="range" min="0" max="16" value="0" id="slider">
