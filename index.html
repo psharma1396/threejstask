@@ -6,7 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"S>
 
     <title>Priya Construction management Task</title>
+    
+    <script type="text/javascript">
+        function resize_canvas(){
+            canvas = document.getElementById("canvas-main");
+            if (canvas.width  < window.innerWidth)
+            {
+                canvas.width  = window.innerWidth;
+            }
 
+            if (canvas.height < window.innerHeight)
+            {
+                canvas.height = window.innerHeight;
+            }
+        }
+    </script>
+    
     <style>
     	.table th {
             text-align: center;
@@ -32,7 +47,7 @@
 
 </head>
 
-<body>
+<body onresize="resize_canvas()">
 
     <div class="container">
         <div class="row">
